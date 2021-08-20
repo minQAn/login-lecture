@@ -37,6 +37,8 @@ const home = require("./src/routes/home");
 // 웹 세팅(views)
 app.set("views", "./src/views");
 app.set("view engine", "ejs"); // ejs는 html같은거? // npm install ejs -s
+app.use(express.static(`${__dirname}/src/public`)); //__dirname은 현재 위치인 app.js파일위치 //chapter 13 //view에서 js파일로 접근 할 수 있도록 도와주는 미들웨어를 등록.
+
 
 // router받아오기
 app.use("/", home);  // use -> 미들 웨어를 등록해주는 메소드. // 이경로에 따라서 해당 콜백함수가 실행되게 되는 원리.
