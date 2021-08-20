@@ -15,5 +15,8 @@ const ctrl = require("./home.ctrl");
 // 이부분이 컨트롤러라고 생각
 router.get("/", ctrl.home);
 router.get("/login", ctrl.login);
+//post로 받는부분
+router.post("/login", ctrl.login);
+
  
 module.exports = router;
