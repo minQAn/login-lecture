@@ -46,7 +46,8 @@ build/Release
 # 그안의 폴더 안에있는 것까지 확인해서 업로드가 안되도록 막아줌.
  
 # Dependency directories
-**node_modules/     # ** 별두개 꼭 해야함!
+# ** 별두개 꼭 해야함!
+**node_modules/     
 jspm_packages/
 
 # TypeScript v1 declaration files
