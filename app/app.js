@@ -32,10 +32,10 @@ const express = require('express');
 const app = express();
 
 // 라우팅 (컨트롤러 이 안에 있음)
-const home = require("./routes/home");
+const home = require("./src/routes/home");
 
 // 웹 세팅(views)
-app.set("views", "./views");
+app.set("views", "./src/views");
 app.set("view engine", "ejs"); // ejs는 html같은거? // npm install ejs -s
 
 // router받아오기
