@@ -12,7 +12,7 @@ const id = document.querySelector("#id"),
 
 loginBtn.addEventListener("click", login);
 function login(){
-    const req ={
+    const req = {
         id: id.value,
         psword: psword.value,
     };
@@ -21,7 +21,7 @@ function login(){
     console.log(JSON.stringify(req)); //문자
 
     // 서버랑 프론트랑 해당 로그인 데이터를 어떤경로에서 주고받을지 정해줘야 함.
-    // 어떤 경로로 보낼껀지
+    // 어떤 경로로 보낼껀지 + 오브젝트
     fetch("/login", {
         method: "POST", 
         headers:{
