@@ -29,6 +29,16 @@ function login(){
         },
         body: JSON.stringify(req) //문자열로 바꿔서 전달
     })
-    .then((res) => res.json())
-    .then(console.log);   //res.json()의 반환값은 promise다.
+        .then((res) => res.json())
+        .then((res) => {
+            // console.log(res);
+            if(res.success){
+                location.href = "/";
+            } else {
+                alert(res.msg);
+            }
+        })
+        .catch((err) => {
+            console.error("로그인 중 에러 발생");
+        });
 };
