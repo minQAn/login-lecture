@@ -9,11 +9,13 @@
 // };
 
 // 임시 데이터베이스
-const users = {
-    id: ["woorimIT", "나개발", "김팀장"],
-    psword: ["1234", "1234", "123456"],
-};
+// const users = {
+//     id: ["woorimIT", "나개발", "김팀장"],
+//     psword: ["1234", "1234", "123456"],
+// };
 
+// 모델 가져옴
+const UserStorage = require("../../models/UserStorage");
 
 
 //로그인 화면 출력
@@ -34,21 +36,22 @@ const process = {
         // 인증과정 
         const id = req.body.id,
             psword = req.body.psword;
+
+        const users = UserStorage.getUsers("id", "psword"); // instance화 안하고 바로 부를꺼면 변수에 static해야함
+        
+        const response = {};
         // console.log(id, psword); 
         if(users.id.includes(id)){
             const idx = users.id.indexOf(id);
             if(users.psword[idx] === psword){
-                return res.json({
-                    success: true,
-
-                });
+                response.success = true;
+                return res.json(response);
             }
-        }
+        } 
 
-        return res.json({
-            success: false,
-            msg: "로그인에 실패하셨습니다.",
-        });
+        response.success = false;
+        response.msg = "로그인데 실패하셨습니다.";
+        return res.json(response);
     },
 };
 
